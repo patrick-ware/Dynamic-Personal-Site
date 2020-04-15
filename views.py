@@ -1,10 +1,18 @@
 import requests
+import glob
+import os
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
 def index(request):
+    print('index page requested...')
     index_html = open('content/index.html').read()
-    context = {}
+    context = {
+        'title' : 'index',
+        'view' : '100%',
+        'content' : index_html,
+    }
     return render(request, 'base.html', context)
 
 
@@ -49,3 +57,21 @@ def github_api_example(request):
     }
     return render(request, 'github.html', context)
 
+
+pages = []
+
+all_html_files = glob.glob("./content/*.html")
+
+for page in all_html_files:
+    rel_path = os.path.relpath(page)
+    file_name = os.path.basename(page)
+    name_only, extension = os.path.splitext(file_name)
+    orig_dir = os.path.dirname(page)
+    output_dir = './docs/'
+    pages.append({
+        'filename': rel_path,
+        'url': name_only + extension,
+        'output': os.path.join(output_dir, name_only + extension),
+        'title': name_only,
+        'view': '',
+    })
