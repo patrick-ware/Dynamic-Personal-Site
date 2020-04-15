@@ -87,11 +87,11 @@
 	<div class="view" style="background-image: url('/static/img/BigSur2.jpg'); background-repeat: no-repeat; background-size: cover;">
 		<div class="mask rgba-black-light d-flex justify-content-center align-items-center">
             {% if view == '100%' %}            
-                {{ content }}
+                {{ content|safe }}
             {% endif %}
 		</div>
 	</div>
     {% if view == '050%' %}            
-         {{ content }}
+         {{ content|safe }}
     {% endif %}
 </html>
