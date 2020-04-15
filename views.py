@@ -16,14 +16,13 @@ def index(request):
     return render(request, 'base.html', context)
 
 
-
 def about_me(request):
-    # Django comes with a "shortcut" function called "render", that
-    # lets us read in HTML template files in separate directories to
-    # keep our code better organized.
+    print('about me page requested...')
+    about_me_html = open('content/about_me.html').read()
     context = {
-        'name': 'About Me',
-        'pokemon': 'Under Construction',
+        'title' : 'about me',
+        'view' : '050%',
+        'content' : about_me_html,
     }
     return render(request, 'base.html', context)
 
