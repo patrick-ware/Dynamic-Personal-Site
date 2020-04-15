@@ -18,10 +18,30 @@ def about_me(request):
     # lets us read in HTML template files in separate directories to
     # keep our code better organized.
     context = {
-        'name': 'Ash Ketchum',
-        'pokemon': 'Pikachu',
+        'name': 'About Me',
+        'pokemon': 'Under Construction',
     }
     return render(request, 'about_me.html', context)
+
+
+def resume(request):
+    # Django comes with a "shortcut" function called "render", that
+    # lets us read in HTML template files in separate directories to
+    # keep our code better organized.
+    context = {
+        'name': 'Resume',
+        'pokemon': 'Under construction',
+    }
+    return render(request, 'about_me.html', context)
+
+
+def contact(request):
+    context = {
+        'name': 'Contact Page',
+        'pokemon': 'Under construction',
+    }
+    return render(request, 'about_me.html', context)
+
 
 
 def github_api_example(request):
