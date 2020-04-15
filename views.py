@@ -28,20 +28,23 @@ def about_me(request):
 
 
 def resume(request):
-    # Django comes with a "shortcut" function called "render", that
-    # lets us read in HTML template files in separate directories to
-    # keep our code better organized.
+    print('resume page requested...')
+    resume_html = open('content/resume.html').read()
     context = {
-        'name': 'Resume',
-        'pokemon': 'Under construction',
+        'title' : 'resume',
+        'view' : '050%',
+        'content' : resume_html,
     }
     return render(request, 'base.html', context)
 
 
 def contact(request):
+    print('contact page requested...')
+    contact_html = open('content/contact.html').read()
     context = {
-        'name': 'Contact Page',
-        'pokemon': 'Under construction',
+        'title' : 'contact',
+        'view' : '100%',
+        'content' : contact_html,
     }
     return render(request, 'base.html', context)
 
