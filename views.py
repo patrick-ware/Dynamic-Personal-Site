@@ -3,14 +3,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def index(request):
-    # This is similar to ones we have done before. Instead of keeping
-    # the HTML / template in a separate directory, we just reply with
-    # the HTML embedded here.
-    return HttpResponse('''
-        <h1>Welcome to my home page!</h1>
-        <a href="/about-me">About me</a> <br />
-        <a href="/github-api-example">See my GitHub contributions</a> <br />
-    ''')
+    index_html = open('content/index.html').read()
+    context = {}
+    return render(request, 'base.html', context)
+
 
 
 def about_me(request):
@@ -21,7 +17,7 @@ def about_me(request):
         'name': 'About Me',
         'pokemon': 'Under Construction',
     }
-    return render(request, 'about_me.html', context)
+    return render(request, 'base.html', context)
 
 
 def resume(request):
@@ -32,7 +28,7 @@ def resume(request):
         'name': 'Resume',
         'pokemon': 'Under construction',
     }
-    return render(request, 'about_me.html', context)
+    return render(request, 'base.html', context)
 
 
 def contact(request):
@@ -40,7 +36,7 @@ def contact(request):
         'name': 'Contact Page',
         'pokemon': 'Under construction',
     }
-    return render(request, 'about_me.html', context)
+    return render(request, 'base.html', context)
 
 
 
