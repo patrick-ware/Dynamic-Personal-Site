@@ -18,16 +18,10 @@ def index(request):
 
 def about_me(request):
     print('about me page requested...')
-    response = requests.get('https://api.github.com/users/patrick-ware/repos')
-    repos = response.json()
-    about_me_html = open('content/about_me.html').read()
-    context = {
-        'title' : 'about me',
-        'view' : '050%',
-        'content' : about_me_html,
-        'github_repos' : repos,
-    }
-    return render(request, 'base.html', context)
+   # response = requests.get('https://api.github.com/users/patrick-ware/repos')
+   # repos = response.json()
+    context = {}
+    return render(request, 'about_me.html', context)
 
 
 def resume(request):
