@@ -7,7 +7,9 @@ from django.shortcuts import render
 
 def index(request):
     print('index page requested...')
-    context = {}
+    context = {
+        'view' : '100%'
+    }
     return render(request, 'index.html', context)
 
 
@@ -16,24 +18,30 @@ def about_me(request):
     response = requests.get('https://api.github.com/users/patrick-ware/repos')
     repos = response.json()
     repo_list = [
-        repo['name']
+        [repo['name'], repo['html_url']]
         for repo in repos
     ]
+    print(repo_list)
     context = {
-        'github_repos' : repo_list,
+        'view' : '50%',
+        'repo_list' : repo_list,
     }
     return render(request, 'about_me.html', context)
 
 
 def resume(request):
     print('resume page requested...')
-    context = {}
+    context = {
+        'view' : '50%'
+    }
     return render(request, 'resume.html', context)
 
 
 def contact(request):
     print('contact page requested...')
-    context = {}
+    context = {
+        'view' : '100%'
+    }
     return render(request, 'contact.html', context)
 
 
