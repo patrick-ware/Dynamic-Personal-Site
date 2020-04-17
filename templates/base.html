@@ -8,7 +8,7 @@
     {% if title == 'index' %}
     <title>Patrick Ware</title>
     {% else %}
-    <title>{{ title|title }}</title>
+    <title>{% block title %}{% endblock %}</title>
     {% endif %}
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -87,11 +87,13 @@
 	<div class="view" style="background-image: url('/static/img/BigSur2.jpg'); background-repeat: no-repeat; background-size: cover;">
 		<div class="mask rgba-black-light d-flex justify-content-center align-items-center">
             {% if view == '100%' %}            
-                {{ content|safe }}
+                {% block content %}
+                {% endblock content %}
             {% endif %}
 		</div>
 	</div>
     {% if view == '050%' %}            
-         {{ content|safe }}
+        {% block content %}
+        {% endblock content %}
     {% endif %}
 </html>

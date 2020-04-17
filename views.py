@@ -18,11 +18,14 @@ def index(request):
 
 def about_me(request):
     print('about me page requested...')
+    response = requests.get('https://api.github.com/users/patrick-ware/repos')
+    repos = response.json()
     about_me_html = open('content/about_me.html').read()
     context = {
         'title' : 'about me',
         'view' : '050%',
         'content' : about_me_html,
+        'github_repos' : repos,
     }
     return render(request, 'base.html', context)
 
@@ -47,7 +50,6 @@ def contact(request):
         'content' : contact_html,
     }
     return render(request, 'base.html', context)
-
 
 
 def github_api_example(request):
