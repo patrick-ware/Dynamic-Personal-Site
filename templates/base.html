@@ -85,15 +85,9 @@
 
   <!--Background-->
 	<div class="view" style="background-image: url('/static/img/BigSur2.jpg'); background-repeat: no-repeat; background-size: cover;">
-		<div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-            {% if view == '100%' %}            
+		<div class="mask rgba-black-light d-flex justify-content-center align-items-center">          
                 {% block content %}
                 {% endblock content %}
-            {% endif %}
 		</div>
 	</div>
-    {% if view == '050%' %}            
-        {% block content %}
-        {% endblock content %}
-    {% endif %}
 </html>
