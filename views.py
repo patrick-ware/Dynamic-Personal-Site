@@ -1,6 +1,7 @@
 import requests
 import glob
 import os
+import operator
 
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -20,12 +21,15 @@ def about_me(request):
     repo_info = [
        [repo['name'], 
         repo['html_url'], 
-        repo['description']]
+        repo['description'],
+        repo['created_at'],
+        ]
         for repo in repos
     ]
+    sort_repo_info = sorted(repo_info, key=operator.itemgetter(3), reverse = True)
     context = {
         'view' : '50%',
-        'repo_info' : repo_info,
+        'repo_info' : sort_repo_info,
     }
     return render(request, 'about_me.html', context)
 
