@@ -72,3 +72,7 @@
 	.container-2 {
 	margin:10px;
 	}
+
+    .list-desc {
+      list-style-type: square;
+    }

@@ -17,14 +17,15 @@ def about_me(request):
     print('about me page requested...')
     response = requests.get('https://api.github.com/users/patrick-ware/repos')
     repos = response.json()
-    repo_list = [
-        [repo['name'], repo['html_url']]
+    repo_info = [
+       [repo['name'], 
+        repo['html_url'], 
+        repo['description']]
         for repo in repos
     ]
-    print(repo_list)
     context = {
         'view' : '50%',
-        'repo_list' : repo_list,
+        'repo_info' : repo_info,
     }
     return render(request, 'about_me.html', context)
 

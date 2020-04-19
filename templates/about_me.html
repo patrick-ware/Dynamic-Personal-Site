@@ -19,10 +19,11 @@ About Me
                 <p>GIS professional, aspiring software developer, outdoor enthusiast, amateur photographer.</p>
                 <h3><i>My Projects</i></h3>
                 <p>
-                {% for repo, url in repo_list %}
-                <ul>
+                {% for repo, url, desc in repo_info %}
+                <ul class = "list-desc">
                     <li>
                         <a href = "{{ url }}" class ="section-detail"> {{ repo }} </a>
+                        <p><i>{{ desc }}</i></p>
                     </li>
                 </ul>
                 {% endfor %}
