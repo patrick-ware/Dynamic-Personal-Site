@@ -3,6 +3,7 @@ import operator
 
 from django.shortcuts import render
 
+
 # Function to initialize homepage
 def index(request):
     print('index page requested...')
@@ -10,6 +11,7 @@ def index(request):
         'view': '100%'
     }
     return render(request, 'index.html', context)
+
 
 # Function to initialize About Me view with GitHub API
 def about_me(request):
@@ -31,6 +33,7 @@ def about_me(request):
     }
     return render(request, 'about_me.html', context)
 
+
 # Function to initialize resume view
 def resume(request):
     print('resume page requested...')
@@ -38,6 +41,7 @@ def resume(request):
         'view': '50%'
     }
     return render(request, 'resume.html', context)
+
 
 # Function to initialize Contact view
 def contact(request):
