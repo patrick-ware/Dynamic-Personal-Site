@@ -3,7 +3,7 @@ import operator
 
 from django.shortcuts import render
 
-
+# Function to initialize homepage
 def index(request):
     print('index page requested...')
     context = {
@@ -11,7 +11,7 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-
+# Function to initialize About Me view with GitHub API
 def about_me(request):
     print('about me page requested...')
     response = requests.get('https://api.github.com/users/patrick-ware/repos')
@@ -31,7 +31,7 @@ def about_me(request):
     }
     return render(request, 'about_me.html', context)
 
-
+# Function to initialize resume view
 def resume(request):
     print('resume page requested...')
     context = {
@@ -39,7 +39,7 @@ def resume(request):
     }
     return render(request, 'resume.html', context)
 
-
+# Function to initialize Contact view
 def contact(request):
     print('contact page requested...')
     context = {
