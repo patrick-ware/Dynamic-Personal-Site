@@ -12,12 +12,11 @@ About Me
 	<div class="container-2">
 		<div class="row">
 			<div class="col">
-				<div class="section-header" style="margin-top:50px;">About Me
+				<div class="section-header" style="margin-top:50px;">Projects
 				</div>
 			</div>
 			<div class="col">
 				<div class="section-detail" style="margin-top:60px;">
-                <h3><i>My Projects</i></h3>
                 <p>
                 {% for repo, url, desc, date in repo_info %}
                 <ul class = "list-desc">
@@ -30,7 +29,6 @@ About Me
 				</div>
 			</div>
 			<div class="col">
-				<img class="headshot" src="/static/img/Headshot_Color.JPG">
 			</div>
 		</div>
 {% endblock content %}
