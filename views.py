@@ -16,6 +16,15 @@ def index(request):
 # Function to initialize About Me view with GitHub API
 def about_me(request):
     print('about me page requested...')
+    context = {
+        'view': '50%'
+    }
+    return render(request, 'about_me.html', context)
+
+
+# Function to intialize Project view with GitHub API
+def projects(request):
+    print('projects page requested...')
     response = requests.get('https://api.github.com/users/patrick-ware/repos')
     repos = response.json()
     repo_info = [
@@ -31,10 +40,10 @@ def about_me(request):
         'view': '50%',
         'repo_info': sort_repo_info,
     }
-    return render(request, 'about_me.html', context)
+    return render(request, 'projects.html', context)    
 
 
-# Function to initialize resume view
+# Function to initialize Resume view
 def resume(request):
     print('resume page requested...')
     context = {

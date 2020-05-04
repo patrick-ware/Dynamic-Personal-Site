@@ -3,7 +3,7 @@
 {% block title %}
 About Me
 {% endblock title %}
-{% block nav_aboutme_active %}-active{% endblock nav_aboutme_active %}
+{% block nav_projects_active %}-active{% endblock nav_projects_active %}
 {% block content %}
 <!--050%-->
 	<!--Content-->
@@ -17,7 +17,16 @@ About Me
 			</div>
 			<div class="col">
 				<div class="section-detail" style="margin-top:60px;">
-                <p>GIS professional, aspiring software developer, outdoor enthusiast, amateur photographer.</p>
+                <h3><i>My Projects</i></h3>
+                <p>
+                {% for repo, url, desc, date in repo_info %}
+                <ul class = "list-desc">
+                    <li>
+                        <a href = "{{ url }}" class ="section-detail"> {{ repo }} </a>
+                        <p><i>{{ desc }}</i></p>
+                    </li>
+                </ul>
+                {% endfor %}
 				</div>
 			</div>
 			<div class="col">
