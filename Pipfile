@@ -7,8 +7,10 @@ verify_ssl = true
 
 [packages]
 django = "*"
-requests = "*"
+requests = ">=2.31.0"
 flake8 = "*"
+urllib3 = ">=1.26.5"
+sqlparse = ">=0.4.4"
 
 [requires]
-python_version = "3.6"
+python_version = ">=3.11"
